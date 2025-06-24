@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="./.github/logo.png" width="200px">
-  <h1>Vue Paycard</h1>
+  <img src="./.github/epico2.png" width="200px">
+  <h1>Vue Paycard de los pibes</h1>
 </div>
 <p align="center">
-  Credit card component made with Vue.js (works with Vue 2 & 3)
+  Credit card component made with Vue.js (Vue 3)
 </p>
 
 [![Version](https://img.shields.io/npm/v/@pablinho/vue-paycard.svg)](https://www.npmjs.com/package/@pablinho/vue-paycard)
@@ -40,14 +40,7 @@ $ yarn add @pablinho/vue-paycard
 
 You can import in your `main.js` file
 
-```js
-import Vue from "vue";
-import VuePaycard from "@pablinho/vue-paycard";
-
-Vue.use(VuePaycard);
-```
-
-For Vue 3
+Vue.js
 
 ```js
 import { createApp, h } from "vue";
@@ -96,7 +89,7 @@ plugins: [{ src: "~/plugins/@pablinho/vue-paycard.js", mode: "client" }];
 
 ```html
 <template>
-  <@pablinho/vue-paycard :value-fields="valueFields" />
+  <vue-paycard :value-fields="valueFields" />
 </template>
 
 <script>
