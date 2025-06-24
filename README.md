@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./.github/epico2.png" width="200px">
+  <img src="./.github/super_epico.png" width="200px">
   <h1>Vue Paycard de los pibes</h1>
 </div>
 <p align="center">
