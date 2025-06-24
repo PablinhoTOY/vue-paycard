@@ -6,50 +6,32 @@
   Credit card component made with Vue.js (works with Vue 2 & 3)
 </p>
 
-[![Version](https://img.shields.io/npm/v/vue-paycard.svg)](https://www.npmjs.com/package/vue-paycard)
-[![GithubActions](https://github.com/guastallaigor/vue-paycard/workflows/vue-paycard/badge.svg)](https://github.com/guastallaigor/vue-paycard/actions)
-[![Coverage Status](https://coveralls.io/repos/github/guastallaigor/vue-paycard/badge.svg?branch=master)](https://coveralls.io/github/guastallaigor/vue-paycard?branch=master)
+[![Version](https://img.shields.io/npm/v/@pablinho/vue-paycard.svg)](https://www.npmjs.com/package/@pablinho/vue-paycard)
+[![GithubActions](https://github.com/guastallaigor/@pablinho/vue-paycard/workflows/@pablinho/vue-paycard/badge.svg)](https://github.com/guastallaigor/@pablinho/vue-paycard/actions)
+[![Coverage Status](https://coveralls.io/repos/github/guastallaigor/@pablinho/vue-paycard/badge.svg?branch=master)](https://coveralls.io/github/guastallaigor/@pablinho/vue-paycard?branch=master)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Downloads](https://img.shields.io/npm/dt/vue-paycard.svg)](https://www.npmjs.com/package/vue-paycard)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a87b7690-b534-4c67-b4a6-60e586bd79b5/deploy-status)](https://app.netlify.com/sites/vue-paycard/deploys)
+[![Downloads](https://img.shields.io/npm/dt/@pablinho/vue-paycard.svg)](https://www.npmjs.com/package/@pablinho/vue-paycard)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a87b7690-b534-4c67-b4a6-60e586bd79b5/deploy-status)](https://app.netlify.com/sites/@pablinho/vue-paycard/deploys)
 
 > This component is based on <a href="https://github.com/muhammederdem/vue-interactive-paycard" target="_blank">Vue Interactive Paycard</a>. All the credits for the component (idea, design, images, core code) goes to it </br></br>
 > This project only exports the Card component, **you** will need to create your own form
 
 ## Reason
 
-There are a few reasons for creating this project
-
-First of all, a few of us developers needed a good and well designed Vue.js lightweight zero dependencies credit card component with **only** the card, no form attached
-
-Also, Vue Interactive Paycard isn't a Vue.js npm component that you can simply add it to your project, and it doesn't seem to be maintained
-
-So this project is the Card component from there, but with some differences:
-
-1. This component is in npm, so you can simply install and start using it right away, with only Vue.js as a dependency;
-2. All the images were optimized and have their width exactly as they need;
-3. The name of some of the props were changed and some of the code was refactored;
-4. The prop `labels` was added, so we don't need any i18n library;
-5. This project has a development environment using [Storybook](https://storybook.js.org/docs/guides/guide-vue/), [Github Actions](https://github.com/features/actions), etc.
-
-## Storybook
-
-Go to https://vue-paycard.netlify.app
-
-> **Note**: The form inside is just an example, **you** will need to create yours or copy it from `tests/unit/form.vue`
+Fork of the original `vue-paycard` to just use Visa and Mastercard, modified so it can be used in Vue3 and added isCardFlipped as a prop so it can be controlled from outside the component.
 
 ## How to install
 
 ### npm
 
 ```bash
-$ npm install vue-paycard --save
+$ npm install @pablinho/vue-paycard --save
 ```
 
 ### yarn
 
 ```bash
-$ yarn add vue-paycard
+$ yarn add @pablinho/vue-paycard
 ```
 
 ## Quick start
@@ -60,7 +42,7 @@ You can import in your `main.js` file
 
 ```js
 import Vue from "vue";
-import VuePaycard from "vue-paycard";
+import VuePaycard from "@pablinho/vue-paycard";
 
 Vue.use(VuePaycard);
 ```
@@ -69,7 +51,7 @@ For Vue 3
 
 ```js
 import { createApp, h } from "vue";
-import VuePaycard from "vue-paycard";
+import VuePaycard from "@pablinho/vue-paycard";
 
 const app = createApp({
   render: () => h(App),
@@ -83,7 +65,7 @@ app.mount("#app");
 Or locally in any component
 
 ```js
-import { VuePaycard } from "vue-paycard";
+import { VuePaycard } from "@pablinho/vue-paycard";
 // In v0.5+ you don't need the brackets above
 
 export default {
@@ -95,11 +77,11 @@ export default {
 
 ### Nuxt.js
 
-You can create a Nuxt.js plugin `vue-paycard.js`
+You can create a Nuxt.js plugin `@pablinho/vue-paycard.js`
 
 ```js
 import Vue from "vue";
-import VuePaycard from "vue-paycard";
+import VuePaycard from "@pablinho/vue-paycard";
 
 Vue.use(VuePaycard);
 ```
@@ -107,14 +89,14 @@ Vue.use(VuePaycard);
 and then import it in your `nuxt.config.js` file
 
 ```js
-plugins: [{ src: "~/plugins/vue-paycard.js", mode: "client" }];
+plugins: [{ src: "~/plugins/@pablinho/vue-paycard.js", mode: "client" }];
 ```
 
 ## <a name="usage">Basic usage</a>
 
 ```html
 <template>
-  <vue-paycard :value-fields="valueFields" />
+  <@pablinho/vue-paycard :value-fields="valueFields" />
 </template>
 
 <script>
@@ -143,6 +125,7 @@ plugins: [{ src: "~/plugins/vue-paycard.js", mode: "client" }];
 | has-random-backgrounds | Boolean          | true                                                                                                                                | Set a random background image to the card. You can check all the images in `src/assets/images`                                                                                                                                                                                                                                                                                       |
 | background-image       | [String, Number] | ''                                                                                                                                  | Set a background image link to the card (overrides `has-random-backgrounds` prop), or you can pass a single valid number that matches the images name we have in `src/assets/images`                                                                                                                                                                                                 |
 | set-type               | String           | ''                                                                                                                                  | Set a card type from the supported card types ['visaelectron', 'visa', 'elo', 'amex', 'mastercard', 'discover', 'unionpay', 'troy', 'dinersclub', 'jcb', 'laser', 'dankort', 'uatp', 'mir', 'hipercard', 'aura', 'maestro']. Note that this will override the type generated from card number                                                                                        |
+| isCardFlipped               | Boolean           | false                                                                                                                                  | Controls if the card is flipped     
 
 ## Events
 
@@ -152,35 +135,20 @@ plugins: [{ src: "~/plugins/vue-paycard.js", mode: "client" }];
 
 ## Supported card types
 
-- American Express
-- Aura
-- Dankort
-- Diners Club
-- Discover
-- Elo
-- Hipercard
-- JCB
-- Laser
-- Maestro
 - MasterCard
-- MIR
-- Troy
-- UATP
-- UnionPay
 - Visa
-- Visa Electron
 
 ## Development
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/guastallaigor/vue-paycard/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/guastallaigor/@pablinho/vue-paycard/issues)
 
 > **Note**: Contributions are very welcomed, however is very important to open a new issue using the issue template **before** you start working on anything, so we can discuss it before hand
 
 Fork the project and enter this commands in your terminal
 
 ```sh
-$ git clone https://github.com/YOUR_GITHUB_USERNAME/vue-paycard.git
-$ cd vue-paycard
+$ git clone https://github.com/YOUR_GITHUB_USERNAME/@pablinho/vue-paycard.git
+$ cd @pablinho/vue-paycard
 $ yarn
 ```
 
@@ -222,4 +190,4 @@ If an error occurs, you can use the `yarn commit:retry` command that runs the pr
 
 ## License
 
-[MIT](https://github.com/guastallaigor/vue-paycard/blob/master/LICENSE) © 2020
+[MIT](https://github.com/guastallaigor/@pablinho/vue-paycard/blob/master/LICENSE) © 2020

@@ -81,7 +81,7 @@
       </div>
       <div class="card-item__band"></div>
       <div class="card-item__cvv">
-        <label :for="inputFields.cardCvv" aria-label="Card CVV">
+        <label :for="inputFields.cardCvv" aria-label="Card CVV" style="width: 100% !important;">
           <div class="card-item__cvvTitle">{{ labels.cardCvv }}</div>
           <div class="card-item__cvvBand">
             <span>{{ valueFields.cardCvv }}</span>
